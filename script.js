@@ -152,6 +152,7 @@ class DigimonChart {
     this.currentIndex = 0;
     this.cursorAtivo = false;
     this.animInterval = null;
+    this.lastWidth = null;
 
     this.moveSound = new Audio("sounds/blop.ogg");
     this.moveSound.volume = 0.4; // ajuste se quiser
@@ -254,7 +255,15 @@ this.nav = {
       this.chart.addEventListener("load", () => this.setup());
     }
 
-    window.addEventListener("resize", () => this.onResize());
+let resizeTimer;
+
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    this.onResize();
+  }, 50);
+});
+
     document.addEventListener("keydown", (e) => this.onKey(e));
   }
 
@@ -398,10 +407,19 @@ this.cursor.style.left =
   select() {
   }
 
-  onResize() {
+onResize() {
+
+  const rect = this.chart.getBoundingClientRect();
+
+  if (rect.width === this.lastWidth) return;
+
+  this.lastWidth = rect.width;
+
+  requestAnimationFrame(() => {
     this.updateLayout();
     this.updateCursor();
-  }
+  });
+}
 
 onKey(e) {
   if (!this.active) return;
@@ -527,25 +545,36 @@ if (page === "deto") {
 window.addEventListener("load", setupMenuSystem);
 
 function autoResizeMenuText() {
-  const buttons = document.querySelectorAll(".menu-btn span");
+  const spans = document.querySelectorAll(".menu-btn span");
 
-  buttons.forEach(span => {
-    let parent = span.parentElement;
-    let maxHeight = span.clientHeight;
-    let maxWidth = span.clientWidth;
+  spans.forEach(span => {
 
-    let size = 10;
-    span.style.fontSize = size + "px";
+    const maxWidth = span.clientWidth;
+    const maxHeight = span.clientHeight;
 
-    while (
-      span.scrollWidth <= maxWidth &&
-      span.scrollHeight <= maxHeight
-    ) {
-      size++;
-      span.style.fontSize = size + "px";
+    let min = 0;
+    let max = 200; // limite alto seguro
+    let best = 0;
+
+    while (min <= max) {
+
+      let mid = Math.floor((min + max) / 2);
+      span.style.fontSize = mid + "px";
+
+      if (
+        span.scrollWidth <= maxWidth &&
+        span.scrollHeight <= maxHeight
+      ) {
+        best = mid;
+        min = mid + 1;
+      } else {
+        max = mid - 1;
+      }
+
     }
 
-    span.style.fontSize = (size - 1) + "px";
+    span.style.fontSize = best + "px";
+
   });
 }
 

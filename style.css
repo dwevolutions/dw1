@@ -1,26 +1,25 @@
-body {
-  margin: 0;
-  background: url("images/fundo.png") repeat;
-  background-size: 150px;
-  font-family: sans-serif;
-  color: white;
-  display: flex;
-  justify-content: center;  
-  align-items: center;      
-  min-height: 100vh;
-  box-sizing: border-box;
+body{ 
+  margin:0;
+  background:url("images/fundo.png") repeat;
+  background-size:150px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  min-height:100vh;   /* trocado */
+  overflow:hidden;
 }
 
-.page {
-  position: relative;
-  width: 70%;
-  max-width: 1700px;
-  margin-top: 50px;
+.page{
+  position:relative;
+
+  width:min(65vw, 1200px);  /* limita crescimento */
+  aspect-ratio:16/9;        /* proporção fixa */
 }
 
 .main {
-  display: flex;
-  justify-content: center;
+  position: relative;
 }
 
 /* ESQUERDA */
@@ -100,39 +99,33 @@ body {
   transform: translateY(1px);
 }
 
-.sound-btn {
-  position: absolute;
-  top: 95%;
-  right: -40px;  /* ajusta manualmente */
-  transform: translateY(0%);
-  font-size: 28px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+.sound-btn{
+  position:absolute;
+  bottom:0;
+  right:0;
+  transform:translate(85%, 0%);
+  background:transparent;
+  border:none;
+  cursor:pointer;
 }
 
-.sound-btn img {
-  width: 32px;
-  height: 32px;
-  image-rendering: pixelated;
+.sound-btn img{
+  width: 2vw;
+  image-rendering:pixelated;
 }
 
-.top-menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(20px, -85%);
-  z-index: 100;
+.top-menu{
+  position:absolute;
+  top:0;
+  left:0;
+  transform:translate(10%, -92%);
+  display:flex;
+  z-index:100;
 }
 
-.menu-btn {
+.menu-btn{
+  width: 12vw;
   position: relative;
-  display: inline-block;
-  width: 12vw;       /* controla tamanho geral */
-  max-width: 220px;
-  width: clamp(55px, 12vw, 200px);
-  font-size: 1.2em;
-  
 }
 
 .menu-btn img {
@@ -152,8 +145,7 @@ body {
 
   font-family: tiny5, sans-serif;
   white-space: nowrap;
-  
-  text-shadow: 3px 3px 0 #000000;
+  text-shadow: 2px 2px 0 #000000;
 }
 
 /* BOTÃO ATIVO (claro) */
@@ -171,22 +163,24 @@ body {
 ========================= */
 
 .texto {
-	text-align: left;
-	width: 845px;
-	word-wrap: break-word;
-	font-size: 100%;
-	font-family: Arial;
-	color: #d0d0d0;
-	text-shadow: 1px 1px 0 #000000;
+  width: 80%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #e6e6e6;
+  text-shadow: 1px 1px 0 #000000;
 }
+
 .titletxt{
+  width: 80%;
+  margin: 20px auto;
   text-align: center;
-	width: 845px;
-	word-wrap: break-word;
-	font-size: 100%;
-	font-family: Arial;
-	color: #f8f070;
-	text-shadow: 1px 1px 0 #000;
+  word-wrap: break-word;
+  font-size: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #FFFF00;
+  text-shadow: 1px 1px 0 #000000;
 }
 
 .deto-content {
@@ -195,7 +189,6 @@ body {
   left: 3%;
   width: 94%;
   height: 94%;
-
   display: none;       /* começa escondido */
   pointer-events: none;
 }
@@ -211,7 +204,6 @@ body {
   font-family: Arial;
   font-size: 16px;
   color: #d0d0d0;
-  text-shadow: 1px 1px #000;
 
   pointer-events: auto;
 }
@@ -255,13 +247,8 @@ body {
   -webkit-user-select: text;
 }
 
-@media (max-width: 768px) {
-  .main {
-    grid-template-columns: 1fr;
-    width: 95%;
-  }
-
-  .right-panel {
-    min-height: 50vh; /* 40% da altura da tela */
+@media (max-width: 900px) and (orientation: landscape) {
+  .page{
+    width: 50vw;
   }
 }

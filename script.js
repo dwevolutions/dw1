@@ -1536,28 +1536,26 @@ class DigimonChart {
     img.src = sprite.idle;
   }
 
-  updateLayout() {
-    const rect = this.chart.getBoundingClientRect();
-    const scale = rect.width / this.CHART_BASE_WIDTH;
-    const closeSize = Math.round(40 * scale);
+updateLayout() {
+  const rect = this.chart.getBoundingClientRect();
+  const scale = rect.width / this.CHART_BASE_WIDTH;
+  const closeSize = Math.round(40 * scale);
 
-    this.closeButton.style.width = closeSize + "px";
-    this.closeButton.style.height = closeSize + "px";
+  this.closeButton.style.width = closeSize + "px";
+  this.closeButton.style.height = closeSize + "px";
+  this.closeButton.style.right = Math.round(30 * scale) + "px";
+  this.closeButton.style.top = Math.round(30 * scale) + "px";
 
-    this.closeButton.style.right = Math.round(30 * scale) + "px";
-    this.closeButton.style.top = Math.round(30 * scale) + "px";
-    const size = Math.round(this.SLOT_BASE_SIZE * scale);
+  const size = Math.round(this.SLOT_BASE_SIZE * scale);
 
-    this.slots.forEach((div, index) => {
-      const slot = slotsData[index];
-
-      div.style.width = size + "px";
-      div.style.height = size + "px";
-      div.style.left = slot.x * rect.width + "px";
-      div.style.top = slot.y * rect.height + "px";
-    });
-  }
-
+  this.slots.forEach((div, index) => {
+    const slot = slotsData[index];
+    div.style.width = size + "px";
+    div.style.height = size + "px";
+    div.style.left = slot.x * rect.width + "px";
+    div.style.top = slot.y * rect.height + "px";
+  });
+}
   activateCursor() {
     if (!this.cursorAtivo) {
       this.cursor.style.opacity = 1;

@@ -144,7 +144,7 @@ body {
   justify-content: center;
   font-family: digimon, sans-serif;
   white-space: nowrap;
-  text-shadow: 2px 2px 0 #000;
+  text-shadow: 0.1cqw 0.1cqw 0 #000;
 }
 
 .menu-btn.active span {
@@ -158,24 +158,24 @@ body {
 /* ========================= DETO CONTENT ========================= */
 
 .texto {
-  width: 80%;
-  margin: 20px auto;
+  width: 80cqw;
+  margin: 2.4cqw auto;
   text-align: left;
-  font-size: 120%;
+  font-size: 2cqw;
   font-family: 'Inter', sans-serif;
   color: #e6e6e6;
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 0.1cqw 0.1cqw 0 #000;
 }
 
 .titletxt {
-  width: 80%;
-  margin: 20px auto;
+  width: 80cqw;
+  margin: 2cqw auto;
   text-align: center;
   word-wrap: break-word;
-  font-size: 120%;
+  font-size: 2cqw;
   font-family: 'Inter', sans-serif;
   color: #FFFF00;
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 0.1cqw 0.1cqw 0 #000;
 }
 
 .deto-content {
@@ -189,11 +189,8 @@ body {
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  padding: 20px;
+  padding: 3cqw;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  font-size: 1.58cqw;
-  color: #d0d0d0;
   pointer-events: auto;
 }
 
@@ -209,19 +206,19 @@ body {
 /* ========================= SCROLLBAR ========================= */
 
 .deto-scroll::-webkit-scrollbar {
-  width: 26px;
+  width: 3cqw;
 }
 
 .deto-scroll::-webkit-scrollbar-track {
   background: #314a5a;
-  box-shadow: inset 3px 3px 0 #080808, inset -3px -3px 0 #6987a0;
+  box-shadow: inset 0.3cqw 0.3cqw 0 #080808, inset -0.3cqw -0.3cqw 0 #6987a0;
 }
 
 .deto-scroll::-webkit-scrollbar-thumb {
   background: #5a7383;
-  border: 3px solid transparent;
+  border: 0.4cqw solid transparent;
   background-clip: content-box;
-  box-shadow: inset -3px -3px 0 #080808, inset 3px 3px 0 #6987a0;
+  box-shadow: inset -0.3cqw -0.3cqw 0 #080808, inset 0.3cqw 0.3cqw 0 #6987a0;
 }
 
 /* ========================= SELECTABLE TEXT ========================= */
@@ -309,7 +306,7 @@ body {
 
 .ui-panel {
   background: #3d5564;
-  box-shadow: inset 3px 3px 0 #080808, inset -3px -3px 0 #6987a0;
+  box-shadow: inset 0.3cqw 0.3cqw 0 #080808, inset -0.3cqw -0.3cqw 0 #6987a0;
   pointer-events: none;
 }
 
@@ -446,7 +443,7 @@ body {
   font-family: digimon, sans-serif;
   color: #fff974;
   font-size: 3.846cqw;
-  text-shadow: 2px 2px 0 #000;
+  text-shadow: 0.3cqw 0.3cqw 0 #000;
 }
 
 .stat-label-alt {
@@ -560,7 +557,7 @@ body {
   }
 
   .ui-panel {
-    box-shadow: inset 2px 2px 0 #080808, inset -2px -2px 0 #6987a0;
+    box-shadow: inset 0.3cqw 0.3cqw 0 #080808, inset -0.3cqw -0.3cqw 0 #6987a0;
   }
 
   .stat-bar {

@@ -973,7 +973,7 @@ class DigimonChart {
 
       const startX = cRect.right - parentRect.left;
       const startY = (cRect.top + cRect.height / 2 - targets.length / 2 * lineSpacing + i * lineSpacing) - parentRect.top;
-      const endX = iRect.left - parentRect.left;
+      const endX = iRect.left + iRect.width * 0.75 - parentRect.left;
       const endY = iRect.top + iRect.height / 2 - parentRect.top;
       const midX = startX + cfg.h * scale;
       const diagX = midX + (cfg.d || 0) * scale;
@@ -1246,8 +1246,8 @@ window.addEventListener("resize", autoResizeMenuText);
 ========================= */
 
 const i18n = {
-  pt: { "menu-deto": "DETONADO", "menu-creditos": "CRÉDITOS", "info-desc": "DESC.", "info-peso": "PESO", "info-lutas": "LUTAS", "info-tecs": "TECS." },
-  en: { "menu-deto": "WALKTHROUGH", "menu-creditos": "CREDITS", "info-desc": "CARE M.", "info-peso": "WEIGHT", "info-lutas": "BATTLES", "info-tecs": "TECH." }
+  pt: { "menu-deto": "DETONADO", "menu-creditos": "EXTRA", "info-desc": "DESC.", "info-peso": "PESO", "info-lutas": "LUTAS", "info-tecs": "TECS." },
+  en: { "menu-deto": "WALKTHROUGH", "menu-creditos": "EXTRA", "info-desc": "CARE M.", "info-peso": "WEIGHT", "info-lutas": "BATTLES", "info-tecs": "TECH." }
 };
 
 function applyLang(lang) {

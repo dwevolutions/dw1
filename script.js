@@ -316,6 +316,7 @@ class DigimonChart {
       div.className = "slot";
 
       const img = document.createElement("img");
+      img.alt = "";
       const sprite = digimonSprites[index] || {};
       img.src = sprite.idle || "";
       img.dataset.idle = sprite.idle || "";

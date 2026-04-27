@@ -5327,7 +5327,7 @@ class TechChart {
       wrap.style.cssText = `width:${slotW}px; height:${slotH}px; position:relative;`;
 
       const img = document.createElement("img");
-      img.src = `sprites/${d.id}3.webp`;
+      img.src = `sprites/${d.id.toLowerCase()}3.webp`;
       img.alt = "";
       wrap.appendChild(img);
       container.appendChild(wrap);
